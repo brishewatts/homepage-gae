@@ -50,8 +50,10 @@ class MainHandler(BaseHandler):
         elif operacija == "/":
             rezultat = float(num1) / float(num2)
 
-
-        return self.render_template("rezultat.html")
+        rezultat = {
+            "rezultat": rezultat
+        }
+        return self.render_template("rezultat.html", params=rezultat)
 
 app = webapp2.WSGIApplication([
     webapp2.Route('/', MainHandler),
